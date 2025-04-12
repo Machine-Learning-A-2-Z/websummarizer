@@ -1,0 +1,14 @@
+.gradle
+.idea
+.vscode
+F:\CIMBA Assignment\websummarizer\backend\build
+build
+frontend\build
+frontend\node_modules
+
+gradle
+python-service\__pycache__
+
+python-service\.idea
+python-service\.venv
+scalaSummarizerAPI\build
