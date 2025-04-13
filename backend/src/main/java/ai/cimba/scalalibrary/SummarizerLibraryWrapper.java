@@ -4,11 +4,22 @@ package ai.cimba.scalalibrary;
 import ai.cimba.scalaSummarizer.SummarizerLibrary;
 
 public class SummarizerLibraryWrapper {
-    private final SummarizerLibrary summarizer;
 
-    public SummarizerLibraryWrapper(String dbUrl, String dbUser, String dbPassword, String pythonServiceUrl) {
+    private SummarizerLibrary summarizer = new SummarizerLibrary(
+            "jdbc:postgresql://localhost:5432/websummarizer",
+            "postgres",
+            "Isroraj@2022",
+            "http://localhost:8000/summarize"
+    );
+
+    public SummarizerLibraryWrapper() {
         // Create the Scala library instance with custom params
-        this.summarizer = new SummarizerLibrary(dbUrl, dbUser, dbPassword, pythonServiceUrl);
+        this.summarizer = new SummarizerLibrary(
+                "jdbc:postgresql://localhost:5432/websummarizer",
+                "postgres",
+                "Isroraj@2022",
+                "http://localhost:8000/summarize"
+        );
     }
     
     public String summarize(String url) {
