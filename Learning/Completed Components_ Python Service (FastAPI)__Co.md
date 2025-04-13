@@ -7,10 +7,10 @@
 - ✅ `Learn_Typescript.md`
 - ✅ `Learn_Gradle.md`
 - ✅ `Learn_Python.md`
-
-# Completed Components
-
-Python Service (FastAPI)
+- ✅ `Learn_Docker.md`
+- ✅ `Learn_Kubernetes.md`
+- ✅ `Learn_Full_Stack_Sample.md`
+- ✅ `Learn_Scala_Gradle_SpringBoot.md.md`
 
 Core FastAPI service implemented.
 Endpoints tested and verified.
