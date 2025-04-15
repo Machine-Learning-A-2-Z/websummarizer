@@ -32,10 +32,9 @@ public class SummarizerController {
     }
 
     @PostMapping("/summarize")
-    public ResponseEntity<Map<String, String>> summarizeWebsite(@RequestBody Map<String, String> request) {
-        String url = request.get("url");
-        
-        if (url == null || url.isEmpty()) {
+    public ResponseEntity<Map<String, String>> summarizeWebsite(@RequestParam("url") String url) {
+
+        if (url == null) {
             return ResponseEntity.badRequest().body(Map.of("error", "URL is required"));
         }
         

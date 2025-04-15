@@ -1,3 +1,4 @@
-// File: settings.gradle
+//F:\CIMBA Assignment\websummarizer\settings.gradle
+
 rootProject.name = 'web-summarizer'
 include 'scalaSummarizerAPI', 'backend'

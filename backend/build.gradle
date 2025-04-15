@@ -1,4 +1,5 @@
-// File: backend/build.gradle
+// F:\CIMBA Assignment\websummarizer\backend\build.gradle
+
 plugins {
     id 'org.springframework.boot'
     id 'io.spring.dependency-management'
@@ -21,17 +22,17 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.postgresql:postgresql:42.7.4'
-    implementation 'org.scala-lang:scala-library:2.13.12' // or whatever version you're using
+    implementation 'org.scala-lang:scala-library:2.13.12'
 
-    // Scala library dependency
-    implementation files("${rootProject.projectDir}/scalaSummarizerAPI/build/libs/scalaSummarizerAPI-1.0.0.jar")
+    // ✅ Use the fat jar directly
+    implementation name: 'scalaSummarizerAPI-1.0.0-all'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-// Make sure the Scala library is built before this project
+// ✅ Make sure the fat JAR is built before using
 tasks.named('compileJava') {
-    dependsOn(':scalaSummarizerAPI:build')
+    dependsOn(':scalaSummarizerAPI:shadowJar')
 }
 
 test {

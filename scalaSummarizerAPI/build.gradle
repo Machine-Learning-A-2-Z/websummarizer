@@ -2,7 +2,9 @@ plugins {
     id 'scala'
     id 'java-library'
     id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '7.1.2' // Add this line
 }
+
 
 group = 'ai.cimba'
 version = '1.0.0'
@@ -12,12 +14,12 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.scala-lang:scala-library:2.13.8'
+    implementation 'org.scala-lang:scala-library:2.13.9'
     implementation 'com.typesafe.slick:slick_2.13:3.3.3'
-    implementation 'org.postgresql:postgresql:42.3.1'
-    implementation 'org.jsoup:jsoup:1.14.3'
+    implementation 'org.postgresql:postgresql:42.7.2'
+    implementation 'org.jsoup:jsoup:1.15.3'
     implementation 'org.slf4j:slf4j-api:1.7.36'
-    implementation 'ch.qos.logback:logback-classic:1.2.10'
+    implementation 'ch.qos.logback:logback-classic:1.4.12'
     testImplementation 'org.scalatest:scalatest_2.13:3.2.11'
     implementation "com.typesafe.slick:slick_2.13:3.4.1"
 }
@@ -48,4 +50,9 @@ task copyJarToLib(type: Copy, dependsOn: jar) {
     into "${rootProject.projectDir}/build/libs"
 }
 
-build.dependsOn copyJarToLib
+shadowJar {
+    archiveBaseName.set('scalaSummarizerAPI')
+    archiveClassifier.set('all') // Indicates it's a fat jar
+    archiveVersion.set('1.0.0')
+}
+build.dependsOn shadowJar
