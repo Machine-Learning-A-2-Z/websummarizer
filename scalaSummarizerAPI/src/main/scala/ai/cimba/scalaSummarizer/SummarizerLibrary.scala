@@ -22,7 +22,7 @@ object SummarizerLibrary {
   private val dbConfig = Database.forURL(
     url = "jdbc:postgresql://localhost:5432/websummarizer",
     user = "postgres",
-    password = "Isroraj@2022",
+    password = "",
     driver = "org.postgresql.Driver"
   )
 
